@@ -14,4 +14,8 @@ export class AppComponent {
   get targetAmount() {
     return this.baseAmount * this.exchangeRate;
   }
+
+  isValid(value) {
+    return Number.isFinite(this.baseAmount);
+  }
 }
