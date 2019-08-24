@@ -10,9 +10,8 @@ export class AppComponent {
 
   exchangeRate = 0.7;
   baseAmount = 1;
-  targetAmount = this.exchangeRate;
 
-  update(baseAmount) {
-    this.targetAmount = this.exchangeRate * parseFloat(baseAmount);
+  get targetAmount() {
+    return this.baseAmount * this.exchangeRate;
   }
 }
