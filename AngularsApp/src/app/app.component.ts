@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExchangeService } from 'src/_services/exchange.service';
 
 @Component({
@@ -8,14 +8,15 @@ import { ExchangeService } from 'src/_services/exchange.service';
 })
 export class AppComponent {
   title = 'app';
-  private exchangeService: ExchangeService;
-
   baseAmount = 1;
-  baseCurrency = 'GPB';
+  baseCurrency = 'GBP';
   targetCurrency = 'USD';
 
+  constructor(private exchangeService: ExchangeService) {}
+
   get targetAmount() {
-    const exchangeRate = this.exchangeService.exchangeRate();
+    const exchangeRate = this.exchangeService
+      .getExchangeRate(this.baseCurrency, this.targetCurrency);
     return this.baseAmount * exchangeRate;
   }
 

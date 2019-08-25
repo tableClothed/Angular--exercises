@@ -1,2 +1,14 @@
-<input type="number" [(ngModel)]="baseAmount" [ngClass]="{'error': isValid()}"> {{baseCurrency}} =
-<strong>{{targetAmount}}</strong> {{targetCurrency}}
+<input type="number"
+[(ngModel)]="baseAmount"
+[ngClass]="{'error': isValid()}"> 
+
+<select>
+    <option> {{baseCurrency}} </option>
+</select> =
+
+
+<strong>{{targetAmount}}</strong> 
+
+<select>
+    <option> {{targetCurrency}} </option>
+</select>

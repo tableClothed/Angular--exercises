@@ -4,9 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ExchangeService {
+  private exchangeRates = {
+    'USD/GBP': 0.70,
+    'USD/EUR': 1.30,
+    'EUR/USD': 1.10,
+    'GBP/EUR': 1.24,
+    'GBP/USD': 1.42
+  };
 
 constructor() { }
-  exchangeRate() {
-    return 'a';
+
+
+getExchangeRate(baseCurrency: string, targetCurrency: string) {
+    return this.exchangeRates[baseCurrency + '/' + targetCurrency];
   }
 }
