@@ -4,18 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ExchangeService } from 'src/_services/exchange.service';
+import { CurrencySelectedComponent } from 'src/currency-selected/currency-selected.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [
-    ExchangeService
-  ],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      CurrencySelectedComponent
+   ],
+   imports: [
+      BrowserModule,
+      FormsModule
+   ],
+   providers: [
+      ExchangeService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

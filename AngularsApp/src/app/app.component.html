@@ -1,14 +1,13 @@
-<input type="number"
-[(ngModel)]="baseAmount"
-[ngClass]="{'error': isValid()}"> 
+<div class="container">
+    <input type="number"
+    [(ngModel)]="baseAmount"
+    [ngClass]="{'error': !isValid(baseAmount)}"> 
+    
+    <app-currency-selected [selected]="baseCurrency"></app-currency-selected>
+    
+    <strong >{{targetAmount}}</strong> 
+    
+    <app-currency-selected [selected]="targetCurrency"></app-currency-selected>
 
-<select>
-    <option> {{baseCurrency}} </option>
-</select> =
-
-
-<strong>{{targetAmount}}</strong> 
-
-<select>
-    <option> {{targetCurrency}} </option>
-</select>
+    <button (click)="onClickSet()">Set</button>
+</div>

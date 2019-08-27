@@ -21,6 +21,10 @@ export class AppComponent {
   }
 
   isValid(value) {
-    return Number.isFinite(this.baseAmount);
+    return Number.isFinite(value) && value >= 0;
+  }
+
+  onClickSet() {
+    console.log('set values');
   }
 }

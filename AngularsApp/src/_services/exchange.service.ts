@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ExchangeService {
+  supportedCurrencies = ['GBP', 'EUR', 'USD'];
+
   private exchangeRates = {
     'USD/GBP': 0.70,
     'USD/EUR': 1.30,
