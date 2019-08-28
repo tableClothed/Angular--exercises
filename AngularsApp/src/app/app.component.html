@@ -3,11 +3,10 @@
     [(ngModel)]="baseAmount"
     [ngClass]="{'error': !isValid(baseAmount)}"> 
     
-    <app-currency-selected [selected]="baseCurrency"></app-currency-selected>
+    <app-currency-selected [(selected)]="baseCurrency"></app-currency-selected>
     
     <strong >{{targetAmount}}</strong> 
     
-    <app-currency-selected [selected]="targetCurrency"></app-currency-selected>
+    <app-currency-selected [(selected)]="targetCurrency"></app-currency-selected>
 
-    <button (click)="onClickSet()">Set</button>
 </div>

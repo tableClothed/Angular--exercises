@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ExchangeService } from 'src/_services/exchange.service';
 
 @Component({
@@ -9,12 +9,18 @@ import { ExchangeService } from 'src/_services/exchange.service';
 export class CurrencySelectedComponent implements OnInit {
   @Input() selected: string;
   supportedCurrencies: string[];
+  @Output() selectedChange = new EventEmitter<string>();
 
   constructor(private exchange: ExchangeService) {
     this.supportedCurrencies = exchange.supportedCurrencies;
   }
 
   ngOnInit() {
+  }
+
+  onSelectedChange(select: string) {
+    this.selected = select;
+    this.selectedChange.emit(select);
   }
 
 }

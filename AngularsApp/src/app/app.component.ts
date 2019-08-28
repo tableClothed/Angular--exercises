@@ -24,7 +24,7 @@ export class AppComponent {
     return Number.isFinite(value) && value >= 0;
   }
 
-  onClickSet() {
-    console.log('set values');
+  onSetClick(event) {
+    console.log(event);
   }
 }
