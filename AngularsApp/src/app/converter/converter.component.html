@@ -1,0 +1,14 @@
+<div class="container">
+  <input type="number"
+  [(ngModel)]="baseAmount"
+  [ngClass]="{'error': !isValid(baseAmount)}"> 
+  
+  <app-currency-selected [(selected)]="baseCurrency"></app-currency-selected>
+  
+  <strong >{{targetAmount | mypipe:2}}</strong> 
+  
+  <app-currency-selected [(selected)]="targetCurrency"></app-currency-selected>
+
+  <p *ngIf="!isValid(baseAmount)">Wprowadzona wartość jest błędna.</p>
+
+</div>
