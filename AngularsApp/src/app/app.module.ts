@@ -12,6 +12,8 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { HttpModule } from '@angular/http';
+import { PromiseComponent } from './promises/promise/promise.component';
+import { AsyncplainComponent } from './asyncplain/asyncplain.component';
 
 @NgModule({
    declarations: [
@@ -20,7 +22,9 @@ import { HttpModule } from '@angular/http';
       MyPipePipe,
       ConverterComponent,
       ScreenComponent,
-      QuotesComponent
+      QuotesComponent,
+      PromiseComponent,
+      AsyncplainComponent
    ],
    imports: [
       BrowserModule,
