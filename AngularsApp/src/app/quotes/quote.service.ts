@@ -12,7 +12,7 @@ export class QuoteService {
 
   getQuoteOfTheDay(): Promise<Quote> {
 
-    return this.http.get('/quote.json').toPromise()
+    return this.http.get('assets/quote.json').toPromise()
       .then(response => response.json());
   }
 }
