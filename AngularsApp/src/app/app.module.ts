@@ -14,7 +14,8 @@ import { appRoutes } from './routes';
 import { HttpModule } from '@angular/http';
 import { PromiseComponent } from './promises/promise/promise.component';
 import { AsyncplainComponent } from './asyncplain/asyncplain.component';
-
+import { ObservableComponent } from './observable/observable.component';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
 @NgModule({
    declarations: [
       AppComponent,
@@ -24,7 +25,9 @@ import { AsyncplainComponent } from './asyncplain/asyncplain.component';
       ScreenComponent,
       QuotesComponent,
       PromiseComponent,
-      AsyncplainComponent
+      AsyncplainComponent,
+      ObservableComponent,
+      BookmarksComponent
    ],
    imports: [
       BrowserModule,
