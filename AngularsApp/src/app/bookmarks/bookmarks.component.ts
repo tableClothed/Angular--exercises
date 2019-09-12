@@ -10,10 +10,17 @@ export class BookmarksComponent implements OnInit {
   bookmarks = [];
 
   constructor(private bookService: BookmarkService) {
-    bookService.getBookmarks().then(bookmarks => this.bookmarks = bookmarks);
+    this.bookService.getBookmarks().then(bookmarks => this.bookmarks = bookmarks);
   }
 
   ngOnInit() {
   }
 
+  save(bookmark) {
+    this.bookService.addBookmark(bookmark).then(() => this.reload());
+  }
+
+  private reload() {
+    this.bookService.getBookmarks().then(bookmarks => this.bookmarks = bookmarks);
+  }
 }

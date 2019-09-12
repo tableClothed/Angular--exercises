@@ -16,6 +16,8 @@ import { PromiseComponent } from './promises/promise/promise.component';
 import { AsyncplainComponent } from './asyncplain/asyncplain.component';
 import { ObservableComponent } from './observable/observable.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { BookmarkListComponent } from 'src/bookmark-list/bookmark-list.component';
+import { BookmarkEditComponent } from './bookmark-edit/bookmark-edit.component';
 @NgModule({
    declarations: [
       AppComponent,
@@ -27,7 +29,9 @@ import { BookmarksComponent } from './bookmarks/bookmarks.component';
       PromiseComponent,
       AsyncplainComponent,
       ObservableComponent,
-      BookmarksComponent
+      BookmarksComponent,
+      BookmarkListComponent,
+      BookmarkEditComponent
    ],
    imports: [
       BrowserModule,

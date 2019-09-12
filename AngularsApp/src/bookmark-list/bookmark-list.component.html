@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <table class="table table-striped">
+    <tr *ngFor="let bookmark of bookmarks">
+      <td>
+        <a [href]="bookmark.url" target="_bank">
+          {{bookmark.title}}
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

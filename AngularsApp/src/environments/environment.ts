@@ -4,7 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: 'https://console.firebase.google.com/u/0/project/angularapp-4db55/database/angularapp-4db55/data/bookmarks'
 };
 
 /*
