@@ -6,9 +6,13 @@
 /out-tsc
 
 
+
 # dependencies
 /node_modules
 /src/environments
+/environments
+
+
 
 # IDEs and editors
 /.idea

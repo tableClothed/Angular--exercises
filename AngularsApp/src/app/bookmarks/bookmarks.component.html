@@ -1,2 +1,2 @@
 <app-bookmark-edit (save)="save($event)"></app-bookmark-edit>
-<app-bookmark-list [bookmarks]="bookmarks"></app-bookmark-list>
+<app-bookmark-list (remove)="remove($event)" [bookmarks]="bookmarks"></app-bookmark-list>

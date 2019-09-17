@@ -10,7 +10,7 @@ export class BookmarksComponent implements OnInit {
   bookmarks = [];
 
   constructor(private bookService: BookmarkService) {
-    this.bookService.getBookmarks().then(bookmarks => this.bookmarks = bookmarks);
+    this.reload();
   }
 
   ngOnInit() {
@@ -18,6 +18,10 @@ export class BookmarksComponent implements OnInit {
 
   save(bookmark) {
     this.bookService.addBookmark(bookmark).then(() => this.reload());
+  }
+
+  remove(bookmark) {
+    this.bookService.removeBookmark(bookmark).then(() => this.reload());
   }
 
   private reload() {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import {timer} from 'rxjs';
+import { Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
@@ -11,14 +10,15 @@ export class ObservableComponent implements OnInit {
   result: any;
 
   constructor() {
-    this.countDown(5)
-    .subscribe(result => this.result = result, null, () => this.result = 'Complete!');
+    this.countDown(5);
    }
 
-   countDown(start): Observable<number> {
-     return Observable.timer(1, 1000)
-     .map(x => start - x)
-     .takeWhile(x => x > 0);
+   countDown(start) {
+     const time = timer(1, 1000);
+     time.subscribe(x =>  {
+       console.log(x);
+       this.result = start - x;
+     });
    }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-bookmark-list',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookmark-list.component.css']
 })
 export class BookmarkListComponent implements OnInit {
-  bookmarks = [];
+  @Input() bookmarks = [];
+  @Output() remove = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRemove(bookmark) {
+    this.remove.emit(bookmark);
   }
 
 }
