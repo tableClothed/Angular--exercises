@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BookmarkListComponent implements OnInit {
   @Input() bookmarks = [];
   @Output() remove = new EventEmitter();
+  @Output() edit = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +16,10 @@ export class BookmarkListComponent implements OnInit {
 
   onRemove(bookmark) {
     this.remove.emit(bookmark);
+  }
+
+  onEdit(bookmark) {
+    this.edit.emit(bookmark);
   }
 
 }

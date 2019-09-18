@@ -18,6 +18,7 @@ constructor(private http: Http) { }
   getBookmarks() {
     return this.http.get(this.baseUrl + '/bookmarks.json')
       .toPromise().then(response => this.convert(response.json()));
+
   }
 
   removeBookmark(bookmark) {
@@ -25,13 +26,21 @@ constructor(private http: Http) { }
     return this.http.delete(this.baseUrl + '/bookmarks/' + bookmark.id + '.json', json).toPromise();
   }
 
+  updateBookmark(bookmark) {
+    const json = JSON.stringify({
+      Title: bookmark.Title,
+      Url: bookmark.Url
+    });
+    return this.http.patch(baseUrl + '/bookmarks/' + bookmark.id + '.json', json).toPromise();
+  }
+
   private convert(convertResponse) {
     return Object.keys(convertResponse)
       .map(id => ({
         id: id,
-        title: convertResponse[id].Title,
-        url: convertResponse[id].Url
+        Title: convertResponse[id].Title,
+        Url: convertResponse[id].Url
       }))
-      .sort((a, b) => a.title.localeCompare(a.title));
+      .sort((a, b) => a.Title.localeCompare(b.Title));
   }
 }

@@ -7,7 +7,8 @@ import { BookmarkService } from 'src/_services/bookmark.service';
   styleUrls: ['./bookmarks.component.css']
 })
 export class BookmarksComponent implements OnInit {
-  bookmarks = [];
+  bookmarks: any = [];
+  editableBookmark: any = { };
 
   constructor(private bookService: BookmarkService) {
     this.reload();
@@ -16,8 +17,16 @@ export class BookmarksComponent implements OnInit {
   ngOnInit() {
   }
 
+  edit(bookmark) {
+    this.editableBookmark = Object.assign({}, bookmark);
+  }
+
   save(bookmark) {
-    this.bookService.addBookmark(bookmark).then(() => this.reload());
+    if (bookmark.id) {
+      this.bookService.updateBookmark(bookmark).then(() => this.reload);
+    } else {
+      this.bookService.addBookmark(bookmark).then(() => this.reload());
+    }
   }
 
   remove(bookmark) {
@@ -25,6 +34,9 @@ export class BookmarksComponent implements OnInit {
   }
 
   private reload() {
-    this.bookService.getBookmarks().then(bookmarks => this.bookmarks = bookmarks);
+    this.bookService.getBookmarks().then(bookmarks => {
+      this.bookmarks = bookmarks;
+      console.log(this.bookmarks);
+    });
   }
 }
