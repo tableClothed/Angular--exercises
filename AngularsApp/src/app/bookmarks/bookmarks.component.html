@@ -1,2 +1,14 @@
-<app-bookmark-edit (save)="save($event)"></app-bookmark-edit>
-<app-bookmark-list (remove)="remove($event)" [bookmarks]="bookmarks"></app-bookmark-list>
+<div class="container">
+    <div class="card card-primary">
+        <app-bookmark-edit 
+            [bookmark]="editableBookmark"
+            (clear)="clear($event)"
+            (save)="save($event)">
+        </app-bookmark-edit>
+        <app-bookmark-list
+            (remove)="remove($event)"
+            [bookmarks]="bookmarks"
+            (edit)="edit($event)">
+        </app-bookmark-list>
+    </div>
+</div>

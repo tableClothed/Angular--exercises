@@ -21,22 +21,26 @@ export class BookmarksComponent implements OnInit {
     this.editableBookmark = Object.assign({}, bookmark);
   }
 
+  clear() {
+    this.editableBookmark = {};
+  }
+
   save(bookmark) {
     if (bookmark.id) {
-      this.bookService.updateBookmark(bookmark).then(() => this.reload);
+      this.bookService.updateBookmark(bookmark).then(() => this.reload());
     } else {
       this.bookService.addBookmark(bookmark).then(() => this.reload());
     }
+    this.clear();
   }
 
   remove(bookmark) {
     this.bookService.removeBookmark(bookmark).then(() => this.reload());
   }
 
-  private reload() {
-    this.bookService.getBookmarks().then(bookmarks => {
-      this.bookmarks = bookmarks;
-      console.log(this.bookmarks);
-    });
+  reload() {
+    return this.bookService.getBookmarks()
+      .then(bookmarks => this.bookmarks = bookmarks
+    );
   }
 }
