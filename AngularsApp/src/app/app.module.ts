@@ -18,6 +18,7 @@ import { ObservableComponent } from './observable/observable.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { BookmarkListComponent } from 'src/bookmark-list/bookmark-list.component';
 import { BookmarkEditComponent } from './bookmark-edit/bookmark-edit.component';
+import { FormComponent } from './form/form.component';
 @NgModule({
    declarations: [
       AppComponent,
@@ -31,7 +32,8 @@ import { BookmarkEditComponent } from './bookmark-edit/bookmark-edit.component';
       ObservableComponent,
       BookmarksComponent,
       BookmarkListComponent,
-      BookmarkEditComponent
+      BookmarkEditComponent,
+      FormComponent
    ],
    imports: [
       BrowserModule,
