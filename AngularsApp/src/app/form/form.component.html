@@ -1,9 +1,21 @@
 <div class="container">
-  <form action="" (click)="onSubmit()" novalidate>
+  <form #form="ngForm" (submit)="onSubmit()" novalidate>
     <div class="form-group">
-      <label for="">Email</label>
-      <input type="email" class="form-control" [(ngModel)]="email" name="email" required pattern=".+@.+">
+      <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="email" name="email" required pattern=".+@.+" #emailField='ngModel'>
+      <p *ngIf="emailField.touched && emailField.invalid && emailField?.errors.required" class="alert alert-danger">
+        Podaj email.
+      </p>
+      <p *ngIf="emailField.touched && emailField.invalid && emailField?.errors.pattern" class="alert alert-danger">
+        Adres email .
+      </p>
+
+      <label>Hasło</label>
+      <input type="text" class="form-control" [(ngModel)]="password" name="password" required #passwordField='ngModel'>
+      <p *ngIf="passwordField.touched && passwordField.invalid" class="alert alert-danger">
+        Podaj hasło.
+      </p>
     </div>
-    <button type="submit" class="btn btn-primary"> Rejestracja </button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary"> Rejestracja </button>
   </form>
 </div>
